@@ -61,7 +61,6 @@ fn fix_chunks(lines: &mut Vec<String>) -> Vec<Vec<char>> {
     for line in lines {
         let mut stack: Vec<char> = Vec::new();
         let mut added: Vec<char> = Vec::new();
-        println!("Before: {}", line);
 
         for element in line.chars() {
             let keys: Vec<char> = closing_brackets.keys().map(|c| c.to_owned()).collect();
@@ -76,8 +75,6 @@ fn fix_chunks(lines: &mut Vec<String>) -> Vec<Vec<char>> {
             line.push(opening_brackets[&bracket]);
             added.push(opening_brackets[&bracket]);
         }
-
-        println!("After:  {}", line);
 
         brackets_added.push(added);
     }
